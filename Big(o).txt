@@ -1,0 +1,1 @@
+--> How the algorithm behave or time taken if input size is increased is known as time complexity. 
