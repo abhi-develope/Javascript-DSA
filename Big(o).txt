@@ -1,1 +1,8 @@
 --> How the algorithm behave or time taken if input size is increased is known as time complexity. 
+
+--> Rule of big O
+
+1. Worst Case
+2. Remove Constatnts
+3. Different terms for inputs
+4. Drop non dominants
