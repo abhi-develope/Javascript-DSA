@@ -1,0 +1,118 @@
+                 
+                 
+                 
+                  Bitwise XOR
+
+
+
+You can swap two numbers without using a temporary variable in JavaScript by leveraging arithmetic operations or bitwise XOR. Here are two ways to do it:
+
+1. Using Arithmetic Operations:
+```javascript
+let a = 5;
+let b = 10;
+
+console.log(`Before Swap: a = ${a}, b = ${b}`);
+
+a = a + b;  // a becomes 15
+b = a - b;  // b becomes 5
+a = a - b;  // a becomes 10
+
+console.log(`After Swap: a = ${a}, b = ${b}`);
+```
+
+2. Using Bitwise XOR:
+```javascript
+let a = 5;
+let b = 10;
+
+console.log(`Before Swap: a = ${a}, b = ${b}`);
+
+a = a ^ b;  // XOR swap step 1
+b = a ^ b;  // XOR swap step 2
+a = a ^ b;  // XOR swap step 3
+
+console.log(`After Swap: a = ${a}, b = ${b}`);
+```
+
+Both of these methods swap the values of a and b without needing an extra variable.
+
+### Explanation of the XOR Swap:
+
+The second method uses a bitwise XOR operation (^) to swap two numbers without using a temporary variable. Let's break it down step by step.
+
+### XOR Basics:
+The XOR (^) operation compares the binary representations of two numbers:
+
+- If the bits are the same, the result is 0.
+- If the bits are different, the result is 1.
+
+For example:
+```
+5 (decimal)  =  101 (binary)
+10 (decimal) = 1010 (binary)
+```
+
+Performing XOR between them:
+```
+5 ^ 10 = 1111 (binary) = 15 (decimal)
+```
+
+### XOR Swap Process:
+#### Step 1: XOR the values and store in `a`
+```javascript
+a = a ^ b;
+```
+Result:
+```
+a = 5 ^ 10
+a = 0101 ^ 1010 = 1111 (15 in decimal)
+```
+
+So, after the first step:
+```
+a = 15 (binary: 1111)
+b = 10 (binary: 1010)
+```
+
+#### Step 2: XOR `a` (now 15) with `b` to get the original value of `a` and store in `b`
+```javascript
+b = a ^ b;
+```
+Result:
+```
+b = 15 ^ 10
+b = 1111 ^ 1010 = 0101 (5 in decimal)
+```
+
+Now:
+```
+a = 15 (binary: 1111)
+b = 5  (binary: 0101)
+```
+`b` now holds the original value of `a`.
+
+#### Step 3: XOR `a` (now 15) with `b` (now 5) to get the original value of `b` and store in `a`
+```javascript
+a = a ^ b;
+```
+Result:
+```
+a = 15 ^ 5
+a = 1111 ^ 0101 = 1010 (10 in decimal)
+```
+
+Now:
+```
+a = 10 (binary: 1010)
+b = 5  (binary: 0101)
+```
+
+### Final Values:
+The values of `a` and `b` have been successfully swapped without using a temporary variable.
+
+### Summary of XOR Swap:
+1. `a = a ^ b` combines the values of `a` and `b` into `a` using XOR.
+2. `b = a ^ b` extracts the original value of `a` and assigns it to `b`.
+3. `a = a ^ b` extracts the original value of `b` and assigns it to `a`.
+No temporary variable is needed because XOR allows us to store the combination of both numbers in a way that lets us extract the original values.
