@@ -16,6 +16,8 @@ for(let i=num; i>0 ; i-- ){
 
 console.log("factorial is", factorial );
 
+rl.close();
+
 
 } )
 
